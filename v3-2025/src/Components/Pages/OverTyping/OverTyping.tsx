@@ -4,7 +4,7 @@ interface HeaderProps {
   dag: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ dag }) => {
+const OverTyping: React.FC<HeaderProps> = ({ dag }) => {
   return (
     <header>
       <h1 className="bold">Övning {dag}</h1>
@@ -12,4 +12,4 @@ const Header: React.FC<HeaderProps> = ({ dag }) => {
   );
 };
 
-export default Header;
+export default OverTyping

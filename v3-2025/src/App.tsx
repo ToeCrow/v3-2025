@@ -1,24 +1,25 @@
 import React from 'react';
-import './App.css';
-import Footer from './Components/Måndag/Footer/Footer';
-import Header from './Components/Header/Header';
-import Main from './Components/Måndag/Main/Main';
-import Ada from './Components/Onsdag/Ada/Ada';
-import Grandfather from './Components/Onsdag/Profilecard/Grandfather';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './Components/Navbar/Navbar';
+import Ada from './Components/Pages/Ada/Ada';
+import Grandfather from './Components/Pages/Profilecard/Grandfather';
+import Shoppingcart from './Components/Pages/Shoppingcart/Shoppingcart';
 
+// Vi behöver importera typ för komponenter om det behövs
 const App: React.FC = () => {
   return (
-    <>
-      <Header dag='måndag'/>
-      <Main />
-      <Footer />
-      <Header dag='onsdag Ada Lovelace'/>
-      <Ada />
-      <Header dag='onsdag Profilkort'/>
-      <Grandfather />
-
-    </>
+    <Router>
+      <Navbar/>
+      <main>
+      <Routes>
+        <Route path="/Ada" element={<Ada />} />
+        <Route path="/ProfileCard" element={<Grandfather />} />
+        <Route path="/Shoppingcart" element={<Shoppingcart />} />
+        {/* <Route path="/task3" element={<Task3 />} /> */}
+      </Routes>
+      </main>
+    </Router>
   );
-}
+};
 
 export default App;

@@ -1,20 +1,20 @@
-import './App.css'
-import Footer from './Components/Footer/Footer'
-import Header from './Components/Header/Header'
-import Main from './Components/Main/Main'
+import React from 'react';
+import './App.css';
+import Footer from './Components/Måndag/Footer/Footer';
+import Header from './Components/Header/Header';
+import Main from './Components/Måndag/Main/Main';
 
-
-
-function App() {
-
-
+const name = 'Ada Lovelace';
+const App: React.FC = () => {
   return (
     <>
-      <Header />
+      <Header dag='måndag'/>
       <Main />
       <Footer />
+      <Header dag='onsdag'/>
+      <Ada />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

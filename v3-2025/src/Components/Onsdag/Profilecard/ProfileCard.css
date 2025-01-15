@@ -1,0 +1,28 @@
+article {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  height: auto;
+  width: 200px;
+  margin: auto;
+}
+
+article img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+article p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.message {
+  position: relative;
+  top: -200px;
+  left: -200px;
+  background-color: #3BBFFB;
+  color: #ffffff;
+  display: inline-block;
+}

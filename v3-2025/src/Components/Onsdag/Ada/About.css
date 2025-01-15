@@ -1,0 +1,9 @@
+h3, p {
+  text-align: left;
+}
+
+.in {
+  color: grey;
+  padding-left: 20px;
+  border-left: 3px solid grey;
+}

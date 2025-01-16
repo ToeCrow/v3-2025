@@ -19,16 +19,17 @@ const SplitUpFrame: React.FC = () => {
     const summaNum = parseFloat(summa);
     const vannerNum = parseFloat(vanner);
     const dricksNum = parseFloat(dricks);
-
+  
     // Kontrollera att alla värden är giltiga nummer
     if (isNaN(summaNum) || isNaN(vannerNum) || isNaN(dricksNum) || vannerNum === 0) {
       return 'Ogiltiga inmatningar';
     }
-
-    // Beräkna dricks per vän
-    const result = (summaNum + (summaNum * dricksNum)) / vannerNum;
+  
+    // Beräkna dricks per vän enligt formeln: (summa + (summa * dricks)) / vanner
+    const result = (summaNum + (summaNum * (dricksNum/100))) / vannerNum;
     return result.toFixed(2); // Returnera resultatet med 2 decimaler
   };
+  
 
   const handleButtonClick = () => {
     const calculatedValue = calculate();
@@ -39,7 +40,7 @@ const SplitUpFrame: React.FC = () => {
     <div id='split-up'>
       <SplitInput label="Summa" id="summa-input" onChange={(e) => handleInputChange(e, setSumma)} />
       <SplitInput label="Antal Vänner" id="vanner-input" onChange={(e) => handleInputChange(e, setVanner)} />
-      <SplitInput label="Dricks" id="dricks-input" onChange={(e) => handleInputChange(e, setDricks)} />
+      <SplitInput label="Dricks (skriv i procent)" id="dricks-input" onChange={(e) => handleInputChange(e, setDricks)} />
       <button onClick={handleButtonClick}>Räkna</button>
 
       {/* Visa resultatet om det finns */}

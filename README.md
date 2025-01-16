@@ -1,42 +1,50 @@
-# v3-2025
-This weeks lessons and exercises.
-React components and introduction to documentation
+# React + TypeScript + Vite
 
-# EXEMPEL PÅ README innehåll:
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# Projektets namn
+Currently, two official plugins are available:
 
-## Beskrivning
-Detta projekt är en enkel React-applikation som demonstrerar grunderna i komponentarkitektur och dokumentation och den är skapad med Vite.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Installation
-1. Klona repot:
-I din terminal: git clone https://github.com/FJSX24/FJSX24-React-Vecka3
+## Expanding the ESLint configuration
 
-2. Navigera till projektmappen: 
-cd project-name
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-3. npm install
+- Configure the top-level `parserOptions` property like this:
 
-4. npm run dev
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-# Använda appen:
-Öppna en webbläsare och gå till : [Vilken url? : ](http://localhost:5173/)
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-## Funktioner/Komponenter:
-- Header: Header element som visar upp en text.
-- Main: Innehåller Greeting med - Ett h1 element med texten Hello World.
-- Footer: Footer element som visar upp en text.
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-## Bidra
-Skicka en pull request om du vill förbättra projektet.
-
-# Övningar
-
-## Komponenter
-
-Övningar ligger i den ordning de är tänkt att göra men självklart kan man ta och göra dem i den ordning man vill.
-
-Att tänka i komponenter: https://gist.github.com/zocom-christoffer-wallenberg/df0c5cc794272ac4681caba4aae8ea5e
-
-Komponentövning: https://gist.github.com/zocom-christoffer-wallenberg/55e88892dca283b73db22798914a1c08
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```

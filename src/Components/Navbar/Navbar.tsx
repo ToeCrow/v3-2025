@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 // Definiera typ för tasks arrayen
-const tasks: string[] = ['Ada', 'ProfileCard', 'Shoppingcart', 'SplitTheNota'];  // Du kan lägga till fler här
+const tasks: string[] = ['Ada', 'ProfileCard', 'Shoppingcart', 'SplitTheNota', 'BookingForm'];  // Du kan lägga till fler här
 
 
 const Navbar: React.FC = () => {
